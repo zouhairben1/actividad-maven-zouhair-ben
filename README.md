@@ -1,4 +1,3 @@
-# ComputerCenterShop v0 starter
 
 Projecte inicial visible per a la practica integradora de RA1 del modul MP0486 - Acces a dades.
 
