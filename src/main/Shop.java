@@ -1,5 +1,5 @@
 package main;
-
+// commiit test on the new eclipse in the new windows 11
 import model.Product;
 import model.Sale;
 import model.Amount;
