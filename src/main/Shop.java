@@ -1,5 +1,5 @@
 package main;
-// commiit test on the new eclipse in the new windows 11
+
 import model.Product;
 import model.Sale;
 import model.Amount;
@@ -223,7 +223,8 @@ public class Shop {
 		File f = new File(System.getProperty("user.dir") + File.separator + "files" + File.separator + ITEMS_FILE);
 
 		// TODO RA1-ISSUE-03: obrir el fitxer, llegir-lo linia a linia i afegir cada producte a inventory.
-		try {
+		/* i did comment this part of the method readInventory() so i can run the application
+		 try {
 			BufferedReader bf = new BufferedReader(new FileReader(f));
 			String Linea = "";
 			while(Linea = bf.readLine() != null)
@@ -235,7 +236,7 @@ public class Shop {
 			e.printStackTrace();
 		}
 		
-		
+		*/
 		// TODO RA1-ISSUE-04: delegar la conversio de cada linia a parseProductLine.
 		// TODO RA1-ISSUE-11: tractar fitxer absent o error de lectura amb un missatge comprensible.
 		System.out.println("RA1-ISSUE-03 pendent: encara no s'ha carregat " + f.getPath());
