@@ -82,8 +82,12 @@ The method correctly extracts the item name, price, and stock, creates the corre
 and adds it to the store's inventory.
 
 ISSUE 05:
---- ISSUE 05 ---
 
 Robustness has been added to the `parseProductLine` method through a `try-catch` block and length validations.
 This allows for the detection of malformed lines, enabling them to be ignored in a controlled manner while displaying a warning, 
 without causing the application to close.
+
+Issue 06 :
+new function has been added to dynamically add new products via the console without needing to restart the application. 
+The system performs step-by-step validation—ensuring that names are not duplicated and that both price and stock values ​​are numeric and logical—thereby preventing runtime errors. 
+This ensures the robustness of the in-memory inventory before it is permanently saved to the file.
