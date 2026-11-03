@@ -69,3 +69,10 @@ Aquest projecte no utilitza JDBC, SQL, ORM, MongoDB, serveis externs ni bases de
 ISSUE 02:
 
 I have verified that .txt files are located.
+
+ISSUE 03:
+I opened the file using a `try-with-resources` block to ensure it closes automatically, read it line by line, and set up the call to the `parseProductLine` method in preparation for the next issue.
+
+- Read and process each line as text:
+Using a `while` loop, we read the `items.txt` file from top to bottom,
+line by line and sequentially, treating each line simply as a plain-text `String` without modifying it.

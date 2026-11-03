@@ -220,28 +220,27 @@ public class Shop {
 	 * read inventory from file
 	 */
 	private void readInventory() {
-		//Relative path of the items.txt file
-		File f = new File(System.getProperty("user.dir") + File.separator + "files" + File.separator + ITEMS_FILE);
+	    File f = new File(System.getProperty("user.dir") + File.separator + "files" + File.separator + ITEMS_FILE);
 
-		// TODO RA1-ISSUE-03: obrir el fitxer, llegir-lo linia a linia i afegir cada producte a inventory.
-		/* i did comment this part of the method readInventory() so i can run the application
-		 try {
-			BufferedReader bf = new BufferedReader(new FileReader(f));
-			String Linea = "";
-			while(Linea = bf.readLine() != null)
-			{
-				
-			}
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		*/
-		// TODO RA1-ISSUE-04: delegar la conversio de cada linia a parseProductLine.
-		// TODO RA1-ISSUE-11: tractar fitxer absent o error de lectura amb un missatge comprensible.
-		System.out.println("RA1-ISSUE-03 pendent: encara no s'ha carregat " + f.getPath());
+	    try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+	        String line;
+	        while ((line = br.readLine()) != null) {
+	        	// Cridem el parser per convertir la línia en un Product
+	            Product product = parseProductLine(line);
+	            if (product != null) {
+	                addProduct(product); // Afegim el producte a l'inventari de la botiga
+	            }
+	        }
+	    } catch (IOException e) {
+	        System.out.println("No s'ha pogut llegir el fitxer d'inventari: " + e.getMessage());
+	    }
+	    
+	    System.out.println("--- Productes actuals a l'inventari ---");
+	    for (Product p : inventory) { // (assegura't que la teva llista es diu 'inventory')
+	        if (p != null) {
+	            System.out.println("- " + p.getName());
+	        }
+	    }
 	}
 
 	/**
