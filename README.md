@@ -66,6 +66,7 @@ view.LoginView
 
 Aquest projecte no utilitza JDBC, SQL, ORM, MongoDB, serveis externs ni bases de dades. La persistencia ha de quedar limitada a fitxers locals.
 
+
 ISSUE 02:
 
 I have verified that .txt files are located.
@@ -91,3 +92,6 @@ Issue 06 :
 new function has been added to dynamically add new products via the console without needing to restart the application. 
 The system performs step-by-step validation—ensuring that names are not duplicated and that both price and stock values ​​are numeric and logical—thereby preventing runtime errors. 
 This ensures the robustness of the in-memory inventory before it is permanently saved to the file.
+
+Issue 07 :
+new method has been added to modify the stock of the items and show the confirmation messsage.
