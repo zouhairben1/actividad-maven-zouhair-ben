@@ -76,3 +76,7 @@ I opened the file using a `try-with-resources` block to ensure it closes automat
 - Read and process each line as text:
 Using a `while` loop, we read the `items.txt` file from top to bottom,
 line by line and sequentially, treating each line simply as a plain-text `String` without modifying it.
+ISSUE 04:
+I have verified the functionality of the `parseProductLine()` method using a  line from the `items.txt` file.
+The method correctly extracts the item name, price, and stock, creates the corresponding `Product` object,
+and adds it to the store's inventory.

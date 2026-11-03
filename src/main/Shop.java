@@ -249,8 +249,30 @@ public class Shop {
 	private Product parseProductLine(String line) {
 		// TODO RA1-ISSUE-04: validar camps, convertir preu i estoc, i retornar un Product.
 		// TODO RA1-ISSUE-05: decidir com es tracten les linies mal formades.
-		return null;
-	}
+try {
+			
+			String[] parts = line.split(";");
+			
+			
+			if (parts.length != 3) {
+				return null;
+			}
+
+			
+			String name = parts[0].split(":")[1].trim();
+			double wholesalerPrice = Double.parseDouble(parts[1].split(":")[1].trim());
+			int stock = Integer.parseInt(parts[2].split(":")[1].trim());
+			
+
+
+			return new Product(name, new Amount(wholesalerPrice), true, stock);
+			
+		} catch (Exception e) {
+		
+			System.out.println("Error: " + line);
+			return null;
+		}
+			}
 
 	/**
 	 * Save the current inventory to items.txt.
