@@ -220,6 +220,7 @@ public class Shop {
 	 * read inventory from file
 	 */
 	private void readInventory() {
+		//Relative path of the items.txt file
 		File f = new File(System.getProperty("user.dir") + File.separator + "files" + File.separator + ITEMS_FILE);
 
 		// TODO RA1-ISSUE-03: obrir el fitxer, llegir-lo linia a linia i afegir cada producte a inventory.
@@ -231,6 +232,7 @@ public class Shop {
 			{
 				
 			}
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
