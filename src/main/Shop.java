@@ -277,9 +277,27 @@ try {
 	/**
 	 * Save the current inventory to items.txt.
 	 */
+
 	public void saveInventory() {
 		// TODO RA1-ISSUE-09: convertir cada Product en una linia i reescriure items.txt.
-		System.out.println("RA1-ISSUE-09 pendent: encara no s'ha desat l'inventari.");
+				System.out.println("RA1-ISSUE-09 pendent: encara no s'ha desat l'inventari.");
+	    File folder = new File("files");
+	    
+	    if (!folder.exists()) {
+	        folder.mkdirs();
+	    }
+	    
+	    File file = new File(folder, ITEMS_FILE);
+
+	    try (PrintWriter pw = new PrintWriter(new FileWriter(file))) {
+	        for (Product product : inventory) {
+	            String line = "Item:" + product.getName() + ";Wholesaler Price:" + product.getWholesalerPrice().getValue() + ";Stock:" + product.getStock();
+	            pw.println(line);
+	        }
+	        System.out.println("Inventory saved successfully to the file.");
+	    } catch (IOException e) {
+	        System.out.println("Error: Could not save the inventory to the file. Details: " + e.getMessage());
+	    }
 	}
 
 	/**

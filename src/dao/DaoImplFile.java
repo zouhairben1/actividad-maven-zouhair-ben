@@ -12,8 +12,16 @@ public class DaoImplFile implements Dao {
 
 	@Override
 	public void connect() {
-		//Relative path of the user.txt file
-		usersFile = new File(System.getProperty("user.dir") + File.separator + "src" + File.separator + "model" + File.separator + "files" + File.separator + "users.txt");
+	    // Path to the root 'files' folder
+	    File folder = new File("files");
+	    
+	    // Automatically create the folder if it doesn't exist yet
+	    if (!folder.exists()) {
+	        folder.mkdirs();
+	    }
+	    
+	    // Set the usersFile path to the root 'files' folder
+	    usersFile = new File(folder, "users.txt");
 	}
 
 	@Override

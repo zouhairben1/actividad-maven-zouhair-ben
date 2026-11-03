@@ -96,6 +96,13 @@ This ensures the robustness of the in-memory inventory before it is permanently 
 Issue 07 :
 new method has been added to modify the stock of the items and show the confirmation messsage.
 
-Issur 08 :
+Issue 08 :
 i added a  `removeProduct()` method to allow for the removal of items from the in-memory inventory during execution.
 The system interactively validates that the product exists before proceeding and uses the collection's `.remove()` method to delete it.
+
+Issue 09:
+i added a new function saveInventory() which loops through my current inventory and saves all product details
+into the items.txt file. 
+I used PrintWriter and FileWriter to open the file and easily write each product's data line by line onto your hard drive.
+i also I modified the path in both the DAO and Store classes to point to the root-level files folder 
+instead of the hidden src/model/files folder. 
