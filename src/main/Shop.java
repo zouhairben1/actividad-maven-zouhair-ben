@@ -219,24 +219,33 @@ public class Shop {
 	/**
 	 * read inventory from file
 	 */
+	/**
+	 * read inventory from file
+	 */
 	private void readInventory() {
 	    File f = new File(System.getProperty("user.dir") + File.separator + "files" + File.separator + ITEMS_FILE);
+
+	    // 1 & 2. Check if the file exists before reading (handles missing file scenario)
+	    if (!f.exists()) {
+	        System.out.println("Notice: Inventory file ('" + ITEMS_FILE + "') not found. Starting with an empty inventory.");
+	        inventory.clear(); // Recovery strategy: safe start without faking data
+	        return;
+	    }
 
 	    try (BufferedReader br = new BufferedReader(new FileReader(f))) {
 	        String line;
 	        while ((line = br.readLine()) != null) {
-	        	// Cridem el parser per convertir la línia en un Product
 	            Product product = parseProductLine(line);
 	            if (product != null) {
-	                addProduct(product); // Afegim el producte a l'inventari de la botiga
+	                addProduct(product); 
 	            }
 	        }
 	    } catch (IOException e) {
-	        System.out.println("No s'ha pogut llegir el fitxer d'inventari: " + e.getMessage());
+	        System.out.println("Error: Could not read the inventory file: " + e.getMessage());
 	    }
 	    
 	    System.out.println("- Productes actuals a l'inventari-");
-	    for (Product p : inventory) { // (assegura't que la teva llista es diu 'inventory')
+	    for (Product p : inventory) {
 	        if (p != null) {
 	            System.out.println("- " + p.getName());
 	        }

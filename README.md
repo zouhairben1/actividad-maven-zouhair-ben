@@ -108,9 +108,14 @@ i also I modified the path in both the DAO and Store classes to point to the roo
 instead of the hidden src/model/files folder. 
 
 Issue 10 :
---- ISSUE 10 ---
+ ISSUE 10
 
 The application's data persistence was tested by making modifications to the inventory adding and editing and removing  products
 and saving them to the `items.txt` file. Upon fully closing and restarting the program, 
 it was verified that the data is automatically loaded at startup. 
 This confirms that the system robustly saves and retrieves information across different execution sessions.
+
+ISSUE 11
+
+The `readInventory()` method has been updated to robustly handle cases where the `items.txt` file is missing or cannot be read. 
+Through preliminary validations and a controlled exception-handling block.
