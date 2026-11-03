@@ -364,26 +364,39 @@ try {
 	public void addStock() {
 		// TODO RA1-ISSUE-07: trobar un Product i actualitzar el seu estoc.
 		System.out.println("RA1-ISSUE-07 pendent: encara no es pot modificar l'estoc.");
-		 Scanner scanner = CONSOLE; // O el sc que facis servir a la classe
+		Scanner scanner = CONSOLE;
+		scanner.nextLine();
+
+		String name = "";
+		Product product = null;
+
+		do {
+		    System.out.print("Introdueix el nom del producte a modificar: ");
+		    name = scanner.nextLine();
 		    
-		    System.out.print("Enter the name of the product for which you want to modify: ");
-		    String name = scanner.next();
+		    product = findProduct(name);
 		    
-		    // 1. Busquem el producte a l'inventari
-		    Product product = findProduct(name);
-		    
-		    if (product != null) {
-		        // 2. Demanar el nou estoc
-		        System.out.print("Enter the new stock quantity: ");
-		        int newStock = scanner.nextInt();
-		        
-		        // 3. Actualitzar l'estoc (assegura't que el mètode es diu setStock al teu Product)
-		        product.setStock(newStock);
-		        
-		        System.out.println("Stock successfully updated for: " + product.getName());
-		    } else {
-		        System.out.println("Error: No product found \"" + name + "\".");
+		    if (product == null) {
+		        System.out.println("Producte no trobat. Torna-ho a provar.");
 		    }
+		    
+		} while (product == null);
+
+		System.out.print("Introdueix la nova quantitat d'estoc: ");
+		while (!scanner.hasNextInt()) {
+		    System.out.println("Error: Has d'introduir un número enter.");
+		    scanner.next();
+		    System.out.print("Introdueix la nova quantitat d'estoc: ");
+		}
+		int newStock = scanner.nextInt();
+
+		if (newStock < 0) {
+		    System.out.println("Error: L'estoc no pot ser negatiu.");
+		    return;
+		}
+
+		product.setStock(newStock);
+		System.out.println("Estoc actualitzat correctament. El nou estoc és de: " + product.getStock());
 	}
 
 	/**
