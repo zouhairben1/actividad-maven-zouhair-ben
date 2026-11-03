@@ -106,3 +106,11 @@ into the items.txt file.
 I used PrintWriter and FileWriter to open the file and easily write each product's data line by line onto your hard drive.
 i also I modified the path in both the DAO and Store classes to point to the root-level files folder 
 instead of the hidden src/model/files folder. 
+
+Issue 10 :
+--- ISSUE 10 ---
+
+The application's data persistence was tested by making modifications to the inventory adding and editing and removing  products
+and saving them to the `items.txt` file. Upon fully closing and restarting the program, 
+it was verified that the data is automatically loaded at startup. 
+This confirms that the system robustly saves and retrieves information across different execution sessions.
