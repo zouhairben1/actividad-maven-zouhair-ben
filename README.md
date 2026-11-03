@@ -80,3 +80,10 @@ ISSUE 04:
 I have verified the functionality of the `parseProductLine()` method using a  line from the `items.txt` file.
 The method correctly extracts the item name, price, and stock, creates the corresponding `Product` object,
 and adds it to the store's inventory.
+
+ISSUE 05:
+--- ISSUE 05 ---
+
+Robustness has been added to the `parseProductLine` method through a `try-catch` block and length validations.
+This allows for the detection of malformed lines, enabling them to be ignored in a controlled manner while displaying a warning, 
+without causing the application to close.

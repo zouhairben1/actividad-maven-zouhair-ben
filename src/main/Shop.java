@@ -235,7 +235,7 @@ public class Shop {
 	        System.out.println("No s'ha pogut llegir el fitxer d'inventari: " + e.getMessage());
 	    }
 	    
-	    System.out.println("--- Productes actuals a l'inventari ---");
+	    System.out.println("- Productes actuals a l'inventari-");
 	    for (Product p : inventory) { // (assegura't que la teva llista es diu 'inventory')
 	        if (p != null) {
 	            System.out.println("- " + p.getName());
@@ -255,7 +255,7 @@ try {
 			
 			
 			if (parts.length != 3) {
-				return null;
+				throw new IllegalArgumentException();
 			}
 
 			
@@ -269,7 +269,7 @@ try {
 			
 		} catch (Exception e) {
 		
-			System.out.println("Error: " + line);
+			System.out.println("[ERROR] S'ha ignorat una línia mal formada: \"" + line + "\"");
 			return null;
 		}
 			}
