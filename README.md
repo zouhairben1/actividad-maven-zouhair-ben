@@ -95,3 +95,7 @@ This ensures the robustness of the in-memory inventory before it is permanently 
 
 Issue 07 :
 new method has been added to modify the stock of the items and show the confirmation messsage.
+
+Issur 08 :
+i added a  `removeProduct()` method to allow for the removal of items from the in-memory inventory during execution.
+The system interactively validates that the product exists before proceeding and uses the collection's `.remove()` method to delete it.

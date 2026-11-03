@@ -356,6 +356,26 @@ try {
 	public void removeProduct() {
 		// TODO RA1-ISSUE-08: retirar un Product de inventory sense alterar la resta.
 		System.out.println("RA1-ISSUE-08 pendent: encara no es poden eliminar articles.");
+		Scanner scanner = CONSOLE;
+		scanner.nextLine();
+
+		String name = "";
+		Product product = null;
+
+		do {
+		    System.out.print("Enter the name of the product to delete: ");
+		    name = scanner.nextLine();
+
+		    product = findProduct(name);
+
+		    if (product == null) {
+		        System.out.println("Product not found. Try again.");
+		    }
+
+		} while (product == null);
+
+		inventory.remove(product);
+		System.out.println("The product '" + name + "' has been successfully removed from the inventory.");
 	}
 
 	/**
